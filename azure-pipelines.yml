@@ -12,7 +12,6 @@ trigger:
 #   vmImage: ubuntu-latest
 pool :
   name: default
-  vmImage: {AGENT NAME}
 
 steps:
 - task: UseNode@1
