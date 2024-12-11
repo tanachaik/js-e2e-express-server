@@ -1,9 +1,6 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 #https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=yaml
+variables: 
+  MyRunNumber: '1.0.0-CI+$(Build.BuildNumber)'
 
 trigger:
 - main
@@ -14,6 +11,8 @@ pool :
   name: default
 
 steps:
+- script: echo $(MyRunNumber)
+- script: echo '$(Build.BuildNumber)'
 - task: UseNode@1
   inputs:
     version: '16.x'
