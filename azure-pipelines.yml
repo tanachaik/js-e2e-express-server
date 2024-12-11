@@ -30,6 +30,8 @@ steps:
 - script:
     npm test
   displayName: 'npm test'
+
+#Example: Use multiple tasks
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
@@ -39,13 +41,15 @@ steps:
     targetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy project files'
 
+#Task1
 - task: PublishPipelineArtifact@1
   inputs:
     artifactName: e2e-server
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
-  
+
+#Task2  
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
